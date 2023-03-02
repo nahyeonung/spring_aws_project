@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service //Spring이 MemberService를 Service로 인식해서 Spring Container로 넣어줄려고 Service를 씀
+//@Service //Spring이 MemberService를 Service로 인식해서 Spring Container로 넣어줄려고 Service를 씀
 public class MemberService {
     private final MemberRepository memberRepository;
 
     //DI방식
-    @Autowired
+//    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="container">
+
+    <form action="/members/new" method="post">
+        <div class="form-group">
+<!--            label태그는 input태그를 도와주는 역할. input태그가 디자인 하기 힘들 때 label태그로 연결해서 쉽게 디자인-->
+            <label for="name">이름</label>
+<!--            name속성이 key값이다-->
+            <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+        </div>
+        <button type="submit">등록</button>
+    </form>
+</div>
+</body>
+</html>
