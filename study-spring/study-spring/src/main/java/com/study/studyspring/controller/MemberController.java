@@ -31,12 +31,16 @@ public class MemberController {
     }
 
     @PostMapping("/members/new")
-    public String create(MemberForm form){
+    public String create(MemberForm form, Model model){
         Member member = new Member();
         member.setName(form.getName());
 
-        memberService.join(member);
-
+        long rs = memberService.join(member);
+        System.out.println(rs);
+        if(rs == -1){
+            model.addAttribute("data", "중복된 이름입니다.");
+            return "members/createMemberForm";
+        }
         return "redirect:/";
     }
 

@@ -20,12 +20,21 @@ public class MemberService {
 
 
     public Long join(Member member) {
-        memberRepository.findByName(member.getName())
-                .ifPresent(m -> {
-                    throw new IllegalStateException("중복된 이름입니다.");
-                });
-        memberRepository.save(member);
-        return member.getId();
+        Optional<Member> result = memberRepository.findByName((member.getName()));
+        if(result.isPresent()){
+            return (long) -1;
+        }
+        else{
+            memberRepository.save(member);
+            return member.getId();
+        }
+//        memberRepository.findByName(member.getName())
+//                .ifPresent(m -> {
+//                    System.out.println("스파클"+m);
+//                    throw new IllegalStateException("중복된 이름입니다.");
+//                });
+//        memberRepository.save(member);
+//        return member.getId();
     }
 
     public List<Member> findMembers(){

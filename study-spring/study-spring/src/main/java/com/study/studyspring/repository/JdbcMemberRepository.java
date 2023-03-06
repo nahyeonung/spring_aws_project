@@ -18,9 +18,10 @@ public class JdbcMemberRepository implements MemberRepository{
     @Override
     public Member save(Member member) {
         String sql = "insert into member(name) values(?)";
+        //클래스 변수 = null => 변수에 클래스에 해당하는 그릇은 만들었지만 어떠한 값을 담지는 않았다.
         Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+        PreparedStatement pstmt = null; //sql문 전송하는 객체인 PreparedStatement
+        ResultSet rs = null; //결과값 저장하는 곳
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql,
@@ -28,8 +29,12 @@ public class JdbcMemberRepository implements MemberRepository{
             pstmt.setString(1, member.getName());
             pstmt.executeUpdate();
             rs = pstmt.getGeneratedKeys();
+            System.out.println(rs);
+            //rs내부에는 데이터를 읽을 수 있는 커서가 있다. 이게 처음에는 데이터를 읽을 수 없는 가장 앞쪽에 있어서 한번은
+            //rs.next()를 해주어야 그 다음부터 데이터를 읽을 수 있게 된다.
             if (rs.next()) {
-                member.setId(rs.getLong(1));
+                System.out.println(rs);
+                member.setId(rs.getLong(1)); //Long형태의 key값 받아오기
             } else {
                 throw new SQLException("id 조회 실패");
             }
