@@ -1,12 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<script th:inline="javascript">
-    var data = [[${data}]]
-    console.log("기혁이바보"+data);
-    if(data != null) {
-        alert(data);
-    }
-</script>
+
 <body>
 
 <div class="container">
@@ -20,6 +14,27 @@
         </div>
         <button type="submit">등록</button>
     </form>
+    <a href="/backhome">
+        <button type="button">홈</button>
+    </a>
+    <input type="text" id="cnt" value=0 readonly="readonly" style="text-align:center;"/>
+    <button onClick="cnt();">+</button>
 </div>
 </body>
+<!--$를 사용해서 html의 id값들에 접근하기 위해서 jquery가 필요하다-->
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var data = [[${data}]]
+    if(data != null) {
+        alert(data);
+    }
+    /*]]>*/
+    function cnt() {
+        var s = parseInt($("#cnt").val())
+        s += 1
+        $("#cnt").val(s)
+    }
+
+</script>
 </html>
