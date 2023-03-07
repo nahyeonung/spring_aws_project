@@ -1,0 +1,10 @@
+#div_start
+{
+   text-align:center;
+   margin-top:5%
+}
+#imgs
+{
+    background-image:url('../images/cafe.jpg');
+    background-size:100% 100%;
+}
