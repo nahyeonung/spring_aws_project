@@ -23,18 +23,12 @@
 </body>
 <!--$를 사용해서 html의 id값들에 접근하기 위해서 jquery가 필요하다-->
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<!--밑에처럼 <script>안에 변수 선언하면 전역변수로 js파일에서 사용할 수 있는 것 같다.-->
 <script th:inline="javascript">
     /*<![CDATA[*/
     var data = [[${data}]]
-    if(data != null) {
-        alert(data);
-    }
     /*]]>*/
-    function cnt() {
-        var s = parseInt($("#cnt").val())
-        s += 1
-        $("#cnt").val(s)
-    }
-
 </script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+
 </html>
