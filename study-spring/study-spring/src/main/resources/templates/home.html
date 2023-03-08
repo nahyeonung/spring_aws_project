@@ -1,27 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" style="height:100%">
 <link th:href="@{/css/pages.css}" rel="stylesheet">
-<!--<body background-image: th:src="@{/img/cafe.jpg}">-->
-<!--<body th:style="'background-image:url('+ @{/images/cafe.jpg} +');'">-->
-<body id="imgs">
-<!--<img src="images/cafe.jpg" style="max-width:100%; max-height:100%;">-->
+<body style="height:100%; background-color:black;">
 <div class="container">
+    <div style="flex: 1"></div>
     <div id="div_start">
-        <h1 style="font-size:80px; color:white; font-family: Georgia, serif;">웅쓰네 공부방</h1>
+        <h1 style="font-size:80px; color:white;">웅스터디</h1>
         <p><a href="/members/login">로그인</a></p>
         <p>
             <a href="/members/new">회원 가입</a>
             <a href="/members">회원 목록</a>
         </p>
     </div>
-    <div>
-        <input readonly="readonly" value="" id="address"/>
-    </div>
+<!--    <div>-->
+<!--        <input readonly="readonly" value="" id="address"/>-->
+<!--    </div>-->
+    <div style="flex: 1"></div>
 </div>
 </body>
-<script th:inlne="javascript">
-    var ad = window.location.href;
-    var pen = document.getElementById("address");
-    pen.value = ad;
-</script>
+<!--<script th:inlne="javascript">-->
+<!--    var ad = window.location.href;-->
+<!--    var pen = document.getElementById("address");-->
+<!--    pen.value = ad;-->
+<!--</script>-->
 </html>

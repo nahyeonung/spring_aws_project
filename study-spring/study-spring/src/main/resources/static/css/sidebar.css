@@ -1,0 +1,48 @@
+.nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+.nav_wrapper{
+    width: 60px;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+    padding: 80px 0 0 0;
+    transition: 0.3s;
+    overflow:hidden;
+}
+.nav_wrapper:hover{
+    width: 200px;
+}
+.nav_icon{
+    position: relative;
+    font-size: 1.5em;
+    border: none;
+    background-color: transparent;
+}
+.nav_menu{
+    font-size: 1.2em;
+    border: none;
+    background-color: transparent;
+}
+li {
+    display: flex;
+    width: 200px;
+    padding: 10px 16px 10px;
+}
+
+.nav ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+#nav_icon{
+    position: relative;
+    font-size: 1.5em;
+    border: none;
+    background-color: transparent;
+}
