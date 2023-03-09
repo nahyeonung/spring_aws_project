@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org" style="height:100%">
 <head>
     <title>홈</title>
-    <script type="text/javascript" th:src="@{/js/script.js}"></script>
     <link th:href="@{/css/headers.css}" rel="stylesheet">
     <link th:href="@{/css/sidebar.css}" rel="stylesheet">
+    <link th:href="@{/css/bodies.css}" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body style="height: 90%">
     <header class="header">
         <div class="header_wrapper">
             <h1 class="header_start">
@@ -49,5 +49,13 @@
             </li>
         </ul>
     </nav>
+    <div class="frame">
+        <div class="time">
+            <h1 class="clock"></h1>
+        </div>
+        <div class="best_write">best</div>
+        <div class="list">list</div>
+    </div>
 </body>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
 </html>
