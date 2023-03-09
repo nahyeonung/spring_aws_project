@@ -1,0 +1,23 @@
+.w-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-family: "paybooc-Light", sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+.w-btn-gray-outline {
+    border: 3px solid gray;
+    color: #6e6e6e;
+}
+.w-btn-gray-outline:hover {
+    transform: scale(1.5);
+    background-color: gray;
+    color: #6e6e6e;
+}
+
+.w-btn-outline:active {
+    transform: scale(1.5);
+}
