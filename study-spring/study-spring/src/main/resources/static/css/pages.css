@@ -3,10 +3,18 @@
     height: 100%;
 }
 #idx{
-    width:20%; height:5vh; border:none; border-radius:15px;
+    background-color:
+    #ffffff8c;
+    width:20%; height:5vh;
+    border:none; border-radius:15px;
+    outline: none;
 }
 #pwd{
-    width:20%; height:5vh; border:none; border-radius:15px;
+    margin-top:1%;
+    background-color: #ffffff8c;
+    width:20%; height:5vh;
+    border:none; border-radius:15px;
+    outline: none;
 }
 #div_start
 {

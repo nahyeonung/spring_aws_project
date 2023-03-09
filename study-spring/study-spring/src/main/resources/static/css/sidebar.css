@@ -19,11 +19,13 @@
     position: relative;
     font-size: 1.5em;
     border: none;
+    padding-right: 10%;
     background-color: transparent;
 }
 .nav_menu{
     font-size: 1.2em;
     border: none;
+    color: black;
     background-color: transparent;
 }
 li {
