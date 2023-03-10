@@ -4,6 +4,8 @@ public class Member {
 
     private Long id;
     private String name;
+    private String login_id;
+    private String pwd;
 
     public Long getId(){
         return id;
@@ -20,4 +22,12 @@ public class Member {
     public void setName(String name){
         this.name = name;
     }
+
+    public String getLoginId() { return login_id; }
+
+    public void setLoginId(String login_id) { this.login_id = login_id;}
+
+    public String getPwd() {return pwd;}
+
+    public void setPwd(String pwd){ this.pwd = pwd;}
 }
