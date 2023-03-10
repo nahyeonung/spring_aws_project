@@ -2,15 +2,20 @@
     display: flex;
     height: 100%;
 }
-#idx{
-    background-color:
-    #ffffff8c;
+.idx{
+    background-color: #ffffff8c;
     width:20%; height:5vh;
     border:none; border-radius:15px;
     outline: none;
 }
-#pwd{
+.pwd{
     margin-top:1%;
+    background-color: #ffffff8c;
+    width:20%; height:5vh;
+    border:none; border-radius:15px;
+    outline: none;
+}
+.name{
     background-color: #ffffff8c;
     width:20%; height:5vh;
     border:none; border-radius:15px;

@@ -56,4 +56,7 @@ public class MemberController {
         model.addAttribute("members", members);
         return "members/memberList.html";
     }
+
+    @GetMapping("/members/myPage")
+    public String myPage() {return "members/myPage.html";}
 }
