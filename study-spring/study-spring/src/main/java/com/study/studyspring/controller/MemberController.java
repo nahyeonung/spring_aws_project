@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MemberController {
@@ -26,7 +27,23 @@ public class MemberController {
     }
 
     @GetMapping("/members/login")
-    public String login(){return "members/login";}
+    public String loginform(){return "members/login";}
+
+    @PostMapping("/members/login")
+    public String login(MemberForm form, Model model){
+        Member member = new Member();
+        member.setLoginId(form.getLoginId());
+        member.setPwd(form.getPwd());
+
+        Optional<Member> rs = memberService.findOne(member.getLoginId(), member.getPwd());
+        if(rs.isPresent()){
+            return "main";
+        }else{
+            model.addAttribute("message", "wrong");
+            return "members/login";
+        }
+
+    }
 
     @GetMapping("/members/new")
     public String createForm(){

@@ -35,8 +35,8 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     }
 
     @Override
-    public Optional<Member> findById(Long id) {
-        List<Member> result = jdbcTemplate.query("select * from member where id = ?", memberRowMapper(), id);
+    public Optional<Member> findById(String id, String pwd) {
+        List<Member> result = jdbcTemplate.query("select * from member where id = ? and pwd = ?", memberRowMapper(), id, pwd);
         return result.stream().findAny();
     }
 
@@ -54,7 +54,6 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     private RowMapper<Member> memberRowMapper() {
         return (rs, rowNum) -> {
             Member member = new Member();
-            member.setId(rs.getLong("id"));
             member.setName(rs.getString("name"));
             return member;
         };

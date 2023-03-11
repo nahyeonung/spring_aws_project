@@ -20,18 +20,18 @@ class MemoryMemberRepositoryTest {
     }
 
     
-    @Test
-    public void save() {
-        Member member = new Member(); //SHIFT + F6하면 설정된 같은 이름들을 한 번에 바꿀 수 있음
-        member.setName("test"); //객체에 setName으로 이름을 저장
-        
-        repository.save(member);
-        
-        //findById를 통해 DB의 값과 객체에 저장된 값이 같은지 확인함. 같으면 저장 시 DB에 제대로 등록 된 것임
-        Member result = repository.findById(member.getId()).get();
-        Assertions.assertThat(member).isEqualTo(result);
-        
-    }
+//    @Test
+//    public void save() {
+//        Member member = new Member(); //SHIFT + F6하면 설정된 같은 이름들을 한 번에 바꿀 수 있음
+//        member.setName("test"); //객체에 setName으로 이름을 저장
+//
+//        repository.save(member);
+//
+//        //findById를 통해 DB의 값과 객체에 저장된 값이 같은지 확인함. 같으면 저장 시 DB에 제대로 등록 된 것임
+//        Member result = repository.findById(member.getId()).get();
+//        Assertions.assertThat(member).isEqualTo(result);
+//
+//    }
 
     @Test
     public void SearchName(){

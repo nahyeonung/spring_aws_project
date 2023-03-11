@@ -7,6 +7,8 @@ public class Member {
     private String login_id;
     private String pwd;
 
+    private String filepath;
+
     public Long getId(){
         return id;
     }
@@ -30,4 +32,8 @@ public class Member {
     public String getPwd() {return pwd;}
 
     public void setPwd(String pwd){ this.pwd = pwd;}
+
+    public String getFilepath() {return filepath;}
+
+    public void setFilepath( String filepath) {this.filepath = filepath;}
 }

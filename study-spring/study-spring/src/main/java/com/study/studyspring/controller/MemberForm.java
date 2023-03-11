@@ -11,6 +11,8 @@ public class MemberForm {
 
     private String pwd;
 
+    private String filepath;
+
     public String getName() {
         return name;
     }
@@ -26,4 +28,8 @@ public class MemberForm {
     public String getPwd() {return pwd;}
 
     public void setPwd(String pwd) { this.pwd= pwd;}
+
+    public String getFilepath() {return filepath;}
+
+    public void setFilepath(String filepath){this.filepath = filepath;}
 }
