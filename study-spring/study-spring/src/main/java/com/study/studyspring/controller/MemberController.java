@@ -76,4 +76,11 @@ public class MemberController {
 
     @GetMapping("/members/myPage")
     public String myPage() {return "members/myPage.html";}
+
+    @PostMapping("/members/upload")
+    public String upload(){
+        Member member = new Member();
+        System.out.println(member.getName() + member.getId() + member.getPwd());
+        return "redirect:/members/myPage";
+    }
 }

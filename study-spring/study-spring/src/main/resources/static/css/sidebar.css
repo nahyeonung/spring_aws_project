@@ -19,6 +19,9 @@
 .nav:hover + .frame{
     margin: 70px 0 0 210px;
 }
+.nav:hover + .myPage{
+    margin: 100px 0 0 250px;
+}
 .nav_icon{
     position: relative;
     font-size: 1.5em;
