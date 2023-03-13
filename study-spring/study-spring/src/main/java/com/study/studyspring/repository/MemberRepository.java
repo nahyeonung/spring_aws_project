@@ -10,4 +10,5 @@ public interface MemberRepository {
     Optional<String> findById(String id, String pwd);
     Optional<Member> findByName(String name);
     List<Member> findAll();
+    void imgSave(String name, String filePath);
 }

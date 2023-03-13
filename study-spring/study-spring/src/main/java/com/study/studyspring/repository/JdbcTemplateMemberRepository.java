@@ -51,6 +51,11 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         return jdbcTemplate.query("select * from member", memberRowMapper());
     }
 
+    @Override
+    public void imgSave(String name, String filePath) {
+        jdbcTemplate.update("UPDATE MEMBER SET file = ? WHERE name = ?", filePath, name);
+    }
+
     private RowMapper<Member> memberRowMapper() {
         return (rs, rowNum) -> {
             Member member = new Member();

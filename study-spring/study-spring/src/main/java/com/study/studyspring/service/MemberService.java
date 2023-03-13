@@ -21,12 +21,13 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public void imgsave(MultipartFile file) throws Exception{
+    public void imgUpdate(String name, MultipartFile file) throws Exception{
         String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images";
         UUID uuid = UUID.randomUUID();
         String filename = uuid + "_" + file.getOriginalFilename();
         File saveFile = new File(projectPath, filename);
         file.transferTo(saveFile);
+        memberRepository.imgSave(name, filename);
     }
     public Long join(Member member) {
         Optional<Member> result = memberRepository.findByName((member.getName()));

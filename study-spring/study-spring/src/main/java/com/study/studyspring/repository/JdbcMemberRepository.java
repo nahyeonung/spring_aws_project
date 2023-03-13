@@ -94,6 +94,12 @@ public class JdbcMemberRepository implements MemberRepository{
             close(conn, pstmt, rs);
         }
     }
+
+    @Override
+    public void imgSave(String name, String filePath) {
+
+    }
+
     @Override
     public Optional<Member> findByName(String name) {
         String sql = "select * from member where name = ?";

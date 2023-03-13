@@ -33,6 +33,11 @@ public class MemoryMemberRepository implements MemberRepository{
         return new ArrayList<>(store.values());
     }
 
+    @Override
+    public void imgSave(String name, String filePath) {
+
+    }
+
     public void clear(){
         store.clear();
     }

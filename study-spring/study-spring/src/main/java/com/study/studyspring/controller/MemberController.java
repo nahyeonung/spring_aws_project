@@ -79,13 +79,14 @@ public class MemberController {
 
     @GetMapping("/members/myPage")
     public String myPage(HttpSession session) {
-        session.getAttribute("session");
+        session.getAttribute("sessions");
         return "members/myPage.html";
     }
 
     @PostMapping("/members/upload")
-    public String upload(MemberForm form) throws Exception{
-        memberService.imgsave(form.getFilepath());
+    public String upload(MemberForm form, HttpSession session) throws Exception{
+        String name = (String) session.getAttribute("sessions");
+        memberService.imgUpdate(name, form.getFilepath());
         return "redirect:/members/myPage";
     }
 }
