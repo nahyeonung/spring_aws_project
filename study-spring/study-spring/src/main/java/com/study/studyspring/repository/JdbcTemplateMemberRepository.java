@@ -56,11 +56,16 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         jdbcTemplate.update("UPDATE MEMBER SET file = ? WHERE name = ?", filePath, name);
     }
 
+    @Override
+    public Optional<String> findFile(String name) {
+        List<String> result = jdbcTemplate.query("select * from member where name = ? ",memberRowMapperImg(), name);
+        return result.stream().findAny();
+    }
+
     private RowMapper<Member> memberRowMapper() {
         return (rs, rowNum) -> {
             Member member = new Member();
             member.setName(rs.getString("name"));
-            System.out.println("a"+member.getName());
             return member;
         };
     }
@@ -69,6 +74,13 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
             Member member = new Member();
             member.setName(rs.getString("name"));
             return member.getName();
+        };
+    }
+    private RowMapper<String> memberRowMapperImg() {
+        return (rs, rowNum) -> {
+            Member member = new Member();
+            member.setFilepath(rs.getString("file"));
+            return member.getFilepath();
         };
     }
 

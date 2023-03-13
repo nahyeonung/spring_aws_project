@@ -24,7 +24,9 @@ public class MemberService {
     public void imgUpdate(String name, MultipartFile file) throws Exception{
         String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images";
         UUID uuid = UUID.randomUUID();
-        String filename = uuid + "_" + file.getOriginalFilename();
+        String origin = file.getOriginalFilename();
+        String identity = origin.substring(origin.length()-3, origin.length());
+        String filename = uuid + "." + identity;
         File saveFile = new File(projectPath, filename);
         file.transferTo(saveFile);
         memberRepository.imgSave(name, filename);
@@ -55,5 +57,8 @@ public class MemberService {
         return memberRepository.findById(memberId, memberPwd);
     }
 
+    public Optional<String> findFile(String name){
+        return memberRepository.findFile(name);
+    }
 
 }

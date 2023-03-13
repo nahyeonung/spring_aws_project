@@ -39,6 +39,7 @@ public class MemberController {
         member.setPwd(form.getPwd());
 
         Optional<String> rs = memberService.findOne(member.getLoginId(), member.getPwd());
+        System.out.println(rs);
         if(rs.isPresent()){
             session.setAttribute("sessions", rs.get());
             return "main";
@@ -78,9 +79,13 @@ public class MemberController {
     }
 
     @GetMapping("/members/myPage")
-    public String myPage(HttpSession session) {
+    public String myPage(HttpSession session, Model model) {
         session.getAttribute("sessions");
-        return "members/myPage.html";
+        String name = (String) session.getAttribute("sessions");
+        Optional<String> rs = memberService.findFile(name);
+        String url = "../images/"+rs.get();
+        model.addAttribute("url", url);
+        return "members/myPage";
     }
 
     @PostMapping("/members/upload")

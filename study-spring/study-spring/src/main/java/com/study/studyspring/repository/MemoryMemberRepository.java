@@ -38,6 +38,11 @@ public class MemoryMemberRepository implements MemberRepository{
 
     }
 
+    @Override
+    public Optional<String> findFile(String name) {
+        return null;
+    }
+
     public void clear(){
         store.clear();
     }

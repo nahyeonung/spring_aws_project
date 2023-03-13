@@ -9,7 +9,6 @@
     aspect-ratio: 1 / 1;
     border: 1px solid #eaeaea;
     border-radius: 50%;
-    background-image:url('../images/test.jpg');
     background-size: cover;
     background-position: center;
 }
