@@ -54,12 +54,14 @@
         <div class="profile"></div>
         <div class="img_upload">
             <form action="/members/upload" method="post" enctype="multipart/form-data">
-                <input type="filepath" name="filepath">
+                <input type="file" name="filepath">
                 <button type="submit">작성</button>
             </form>
         </div>
     </div>
-    <div style="flex:4;"></div>
+    <div style="flex:4;">
+        <span><span th:text="${session.sessions}"></span>님에 대한 정보에요</span>
+    </div>
 </div>
 </body>
 <script type="text/javascript" th:src="@{/js/script.js}"></script>

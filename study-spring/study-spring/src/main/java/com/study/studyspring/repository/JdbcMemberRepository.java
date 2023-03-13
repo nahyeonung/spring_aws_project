@@ -46,7 +46,7 @@ public class JdbcMemberRepository implements MemberRepository{
         }
     }
     @Override
-    public Optional<Member> findById(String id, String pwd) {
+    public Optional<String> findById(String id, String pwd) {
         String sql = "select * from member where id = ?";
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -60,7 +60,7 @@ public class JdbcMemberRepository implements MemberRepository{
                 Member member = new Member();
                 member.setId(rs.getLong("id"));
                 member.setName(rs.getString("name"));
-                return Optional.of(member);
+                return Optional.of(String.valueOf(member));
             } else {
                 return Optional.empty();
             }

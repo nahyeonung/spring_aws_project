@@ -35,8 +35,8 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     }
 
     @Override
-    public Optional<Member> findById(String id, String pwd) {
-        List<Member> result = jdbcTemplate.query("select * from member where id = ? and pwd = ?", memberRowMapper(), id, pwd);
+    public Optional<String> findById(String id, String pwd) {
+        List<String> result = jdbcTemplate.query("select * from member where id = ? and pwd = ?", memberRowMapperLogin(), id, pwd);
         return result.stream().findAny();
     }
 
@@ -55,7 +55,16 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         return (rs, rowNum) -> {
             Member member = new Member();
             member.setName(rs.getString("name"));
+            System.out.println("a"+member.getName());
             return member;
         };
     }
+    private RowMapper<String> memberRowMapperLogin() {
+        return (rs, rowNum) -> {
+            Member member = new Member();
+            member.setName(rs.getString("name"));
+            return member.getName();
+        };
+    }
+
 }

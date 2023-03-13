@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,17 +28,19 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+
     @GetMapping("/members/login")
     public String loginform(){return "members/login";}
 
     @PostMapping("/members/login")
-    public String login(MemberForm form, Model model){
+    public String login(MemberForm form, HttpSession session, Model model){
         Member member = new Member();
         member.setLoginId(form.getLoginId());
         member.setPwd(form.getPwd());
 
-        Optional<Member> rs = memberService.findOne(member.getLoginId(), member.getPwd());
+        Optional<String> rs = memberService.findOne(member.getLoginId(), member.getPwd());
         if(rs.isPresent()){
+            session.setAttribute("sessions", rs.get());
             return "main";
         }else{
             model.addAttribute("message", "wrong");
@@ -53,7 +57,6 @@ public class MemberController {
     @PostMapping("/members/new")
     public String create(MemberForm form, Model model){
         Member member = new Member();
-        System.out.println("here" + form.getName()+form.getLoginId() + form.getPwd());
         member.setName(form.getName());
         member.setLoginId(form.getLoginId());
         member.setPwd(form.getPwd());
@@ -75,12 +78,14 @@ public class MemberController {
     }
 
     @GetMapping("/members/myPage")
-    public String myPage() {return "members/myPage.html";}
+    public String myPage(HttpSession session) {
+        session.getAttribute("session");
+        return "members/myPage.html";
+    }
 
     @PostMapping("/members/upload")
-    public String upload(){
-        Member member = new Member();
-        System.out.println(member.getName() + member.getId() + member.getPwd());
+    public String upload(MemberForm form) throws Exception{
+        memberService.imgsave(form.getFilepath());
         return "redirect:/members/myPage";
     }
 }
