@@ -51,10 +51,12 @@
 </nav>
 <div class="myPage">
     <div style="flex:1;">
-        <div class="profile" th:style="'background-image:url(' + ${url} + ');'"></div>
+        <div class="profile">
+            <img id="imgId" th:src="@{/accounts/}" />
+        </div>
         <div class="img_upload">
             <form action="/members/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="filepath">
+                <input type="file" name="filepath" accept=".jpg, .png">
                 <button type="submit">작성</button>
             </form>
         </div>
@@ -62,6 +64,7 @@
     <div style="flex:4;">
         <span><span th:text="${session.sessions}"></span>님에 대한 정보에요</span>
     <p th:text="${url}"></p>
+
     </div>
 </div>
 </body>

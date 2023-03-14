@@ -2,7 +2,10 @@ package com.study.studyspring.controller;
 
 import com.study.studyspring.domain.Member;
 import com.study.studyspring.service.MemberService;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -77,14 +81,27 @@ public class MemberController {
         model.addAttribute("members", members);
         return "members/memberList.html";
     }
-
-    @GetMapping("/members/myPage")
-    public String myPage(HttpSession session, Model model) {
+    @GetMapping("/accounts/")
+    public ResponseEntity<?> getProfileImg (HttpSession session) throws IOException {
         session.getAttribute("sessions");
         String name = (String) session.getAttribute("sessions");
         Optional<String> rs = memberService.findFile(name);
-        String url = "../images/"+rs.get();
-        model.addAttribute("url", url);
+        if(rs.get().isEmpty()){return new ResponseEntity<>("success", HttpStatus.OK);}
+        else{
+            String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\static\\images\\";
+            String url = projectPath+rs.get();
+            InputStream inputStream = new FileInputStream(url);
+            byte[] imageByteArray = IOUtils.toByteArray(inputStream);
+            inputStream.close();
+            return new ResponseEntity<>(imageByteArray, HttpStatus.OK);
+        }
+
+    }
+
+    @GetMapping("/members/myPage")
+    public String myPage(HttpSession session, Model model) throws IOException {
+        session.getAttribute("sessions");
+
         return "members/myPage";
     }
 

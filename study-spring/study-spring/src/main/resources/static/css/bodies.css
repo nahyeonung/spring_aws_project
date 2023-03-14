@@ -7,10 +7,15 @@
 .profile{
     width: 100%;
     aspect-ratio: 1 / 1;
-    border: 1px solid #eaeaea;
-    border-radius: 50%;
     background-size: cover;
     background-position: center;
+}
+#imgId{
+    width:100%;
+    height:100%;
+    border: 1px solid #eaeaea;
+    border-radius: 50%;
+    overflow-fit: cover;
 }
 .myPage{
     height: 100%;
