@@ -111,4 +111,10 @@ public class MemberController {
         memberService.imgUpdate(name, form.getFilepath());
         return "redirect:/members/myPage";
     }
+
+    @GetMapping("/members/logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("sessions");
+        return "home";
+    }
 }

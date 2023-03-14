@@ -3,6 +3,7 @@
 <link th:href="@{/css/headers.css}" rel="stylesheet">
 <link th:href="@{/css/sidebar.css}" rel="stylesheet">
 <link th:href="@{/css/bodies.css}" rel="stylesheet">
+<link th:href="@{/css/buttons.css}" rel="stylesheet">
 <head>
     <title>마이페이지</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -56,15 +57,17 @@
         </div>
         <div class="img_upload">
             <form action="/members/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="filepath" accept=".jpg, .png">
-                <button type="submit">작성</button>
+                <label style="display:block;" for="filepath">프로필 변경</label>
+                <input id="filepath" class="filepath" type="file" name="filepath" accept=".jpg, .png">
+                <button class="file_submit" type="submit">작성</button>
             </form>
         </div>
     </div>
-    <div style="flex:4;">
-        <span><span th:text="${session.sessions}"></span>님에 대한 정보에요</span>
-    <p th:text="${url}"></p>
-
+    <div class="flex4">
+        <div class="flex4_under">
+            <span><span th:text="${session.sessions}"></span>님에 대한 정보에요</span>
+            <a href="/members/logout"><button class="w-btn-outline w-btn-gray-outline">로그아웃</button></a>
+        </div>
     </div>
 </div>
 </body>

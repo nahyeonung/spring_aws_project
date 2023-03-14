@@ -38,3 +38,14 @@
     justify-content: center;
     font-size: 5vw;
 }
+.img_upload{
+    display: flex; justify-content:center;
+}
+.flex4{
+    flex: 4;
+    border-top: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+}
+.flex4_under{
+    display:flex; flex-direction:column; margin-left:10%
+}

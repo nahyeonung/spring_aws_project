@@ -22,3 +22,17 @@
 .w-btn-outline:active {
     transform: scale(1.5);
 }
+input::file-selector-button{
+    height:30px;
+    background-color: #a8a8a8a6;
+    border: none;
+}
+.filepath{
+    border: none;
+    background-color: #eeeeeea6;
+}
+.file_submit{
+    height:30px;
+    border:none;
+    background-color: #a8a8a8a6;
+}
