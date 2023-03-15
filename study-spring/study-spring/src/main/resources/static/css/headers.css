@@ -7,10 +7,6 @@
     box-shadow: 0 0 3px #000;
     z-index: 20;
 }
-.header_a{
-    color: black;
-    text-decoration: none;
-}
 .header_wrapper{
     display: flex;
     justify-content: space-between;

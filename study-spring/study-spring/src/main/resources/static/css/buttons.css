@@ -14,7 +14,6 @@
     color: #6e6e6e;
 }
 .w-btn-gray-outline:hover {
-    transform: scale(1.5);
     background-color: gray;
     color: #6e6e6e;
 }

@@ -5,7 +5,7 @@
 <link th:href="@{/css/bodies.css}" rel="stylesheet">
 <link th:href="@{/css/buttons.css}" rel="stylesheet">
 <head>
-    <title>마이페이지</title>
+    <title>스터디</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -55,25 +55,11 @@
         <div class="profile">
             <img id="imgId" th:src="@{/accounts/}" />
         </div>
-        <div class="img_upload">
-            <form action="/members/upload" method="post" enctype="multipart/form-data">
-                <label style="display:block;" for="filepath">프로필 변경</label>
-                <input id="filepath" class="filepath" type="file" name="filepath" accept=".jpg, .png">
-                <button class="file_submit" type="submit">작성</button>
-            </form>
-            <a href="/members/logout"><button class="logout_button">로그아웃</button></a>
-        </div>
     </div>
     <div class="flex4">
         <div class="flex4_under">
-            <span class="flex4_name"><span class="flex4_name" th:text="${session.sessions}"></span>님에 환영합니다</span>
-            <div class="myPage_body1">
-                <div class="body1_box" >개인정보 수정</div>
-                <div class="body1_box" >찜한 목록</div>
-            </div>
-            <div class="myPage_body2">
-                <div class="body2_box" >찜한 목록</div>
-            </div>
+            <span class="flex4_name"><span class="flex4_name" th:text="${session.sessions}"></span>님의 글이에요</span>
+            <a href="/study/write">글쓰러 가기</a>
         </div>
     </div>
 </div>

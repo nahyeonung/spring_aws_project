@@ -16,4 +16,10 @@ public class HomeController {
 
     @GetMapping("/go/main")
     public String main() {return "main";}
+
+    @GetMapping("/study")
+    public String study() {return "study";}
+
+    @GetMapping("/study/write")
+    public String write() {return "write";}
 }
