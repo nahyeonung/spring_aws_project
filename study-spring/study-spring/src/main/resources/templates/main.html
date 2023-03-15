@@ -13,7 +13,7 @@
         <div class="header_wrapper">
             <h1 class="header_start">
                 <button class="header_hamburger">&#9776;</button>
-                <span class="header_title">웅스터디</span>
+                <a class="header_a" href="/go/main"><span class="header_title">웅스터디</span></a>
             </h1>
             <div class="header_center">
                 <form class="header_form" onsubmit="false">
@@ -23,7 +23,7 @@
             </div>
             <div class="header_end">
                 <button class="header_search">&#128269</button>
-                <div class="header_profile"></div>
+                <img class="header_profile" th:src="@{/accounts/}" />
             </div>
         </div>
     </header>

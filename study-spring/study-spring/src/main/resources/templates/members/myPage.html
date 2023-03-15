@@ -14,7 +14,7 @@
     <div class="header_wrapper">
         <h1 class="header_start">
             <button class="header_hamburger">&#9776;</button>
-            <span class="header_title">웅스터디</span>
+            <a class="header_a" href="/go/main"><span class="header_title">웅스터디</span></a>
         </h1>
         <div class="header_center">
             <form class="header_form" onsubmit="false">
@@ -24,7 +24,7 @@
         </div>
         <div class="header_end">
             <button class="header_search">&#128269</button>
-            <div class="header_profile"></div>
+            <img class="header_profile" th:src="@{/accounts/}" />
         </div>
     </div>
 </header>
@@ -61,12 +61,19 @@
                 <input id="filepath" class="filepath" type="file" name="filepath" accept=".jpg, .png">
                 <button class="file_submit" type="submit">작성</button>
             </form>
+            <a href="/members/logout"><button class="logout_button">로그아웃</button></a>
         </div>
     </div>
     <div class="flex4">
         <div class="flex4_under">
-            <span><span th:text="${session.sessions}"></span>님에 대한 정보에요</span>
-            <a href="/members/logout"><button class="w-btn-outline w-btn-gray-outline">로그아웃</button></a>
+            <span class="flex4_name"><span class="flex4_name" th:text="${session.sessions}"></span>님에 환영합니다</span>
+            <div class="myPage_body1">
+                <div class="body1_box" >개인정보 수정</div>
+                <div class="body1_box" >찜한 목록</div>
+            </div>
+            <div class="myPage_body2">
+                <div class="body2_box" >찜한 목록</div>
+            </div>
         </div>
     </div>
 </div>

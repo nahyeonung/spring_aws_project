@@ -14,5 +14,6 @@ public class HomeController {
     @GetMapping("/backhome")
     public String backhome() { return "home";}
 
-
+    @GetMapping("/go/main")
+    public String main() {return "main";}
 }

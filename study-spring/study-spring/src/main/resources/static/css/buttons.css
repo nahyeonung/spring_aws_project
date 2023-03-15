@@ -32,6 +32,13 @@ input::file-selector-button{
     background-color: #eeeeeea6;
 }
 .file_submit{
+    margin-top:5%;
+    height:30px;
+    border:none;
+    background-color: #a8a8a8a6;
+}
+.logout_button{
+    margin-top:5%;
     height:30px;
     border:none;
     background-color: #a8a8a8a6;

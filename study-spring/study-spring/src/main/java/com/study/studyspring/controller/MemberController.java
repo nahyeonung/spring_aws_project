@@ -43,7 +43,6 @@ public class MemberController {
         member.setPwd(form.getPwd());
 
         Optional<String> rs = memberService.findOne(member.getLoginId(), member.getPwd());
-        System.out.println(rs);
         if(rs.isPresent()){
             session.setAttribute("sessions", rs.get());
             return "main";
