@@ -101,6 +101,11 @@ public class JdbcMemberRepository implements MemberRepository{
     }
 
     @Override
+    public void contentSave(String title, String content, String date, String name) {
+
+    }
+
+    @Override
     public Optional<String> findFile(String name) {
         return null;
     }

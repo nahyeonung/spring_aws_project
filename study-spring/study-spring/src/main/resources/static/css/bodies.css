@@ -23,6 +23,12 @@
     margin: 100px 0  0 100px;
     transition: 0.3s;
 }
+.writePage{
+     height: 100%;
+     display: flex;
+     margin: 0 0  0 100px;
+     transition: 0.3s;
+ }
 .time{
     flex: 1;
     display: flex;

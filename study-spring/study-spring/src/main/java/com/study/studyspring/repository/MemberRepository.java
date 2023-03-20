@@ -12,5 +12,6 @@ public interface MemberRepository {
     List<Member> findAll();
     void imgSave(String name, String filePath);
 
+    void contentSave(String title, String content, String date, String name);
     Optional<String> findFile(String name);
 }

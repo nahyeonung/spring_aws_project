@@ -65,7 +65,10 @@
     border: 1px solid #eaeaea;
     border-radius: 50%;
 }
-
+.semi_header{
+    display: flex; align-items:center; justify-content:center; color:white;
+    height:8%; margin: 60px 0 0 50px; background-color:black
+}
 @media screen and (max-width: 800px){
     .header_title{
         display: none;

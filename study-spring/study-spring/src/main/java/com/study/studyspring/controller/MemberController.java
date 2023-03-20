@@ -1,5 +1,6 @@
 package com.study.studyspring.controller;
 
+import com.study.studyspring.domain.Board;
 import com.study.studyspring.domain.Member;
 import com.study.studyspring.service.MemberService;
 import org.apache.commons.io.IOUtils;
@@ -10,10 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -115,5 +119,19 @@ public class MemberController {
     public String logout(HttpSession session){
         session.removeAttribute("sessions");
         return "home";
+    }
+
+    @PostMapping("/members/write")
+    public String write(@RequestParam("title") String title, @RequestParam("content") String content, HttpSession session){
+        Date now = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date = formatter.format(now);
+        String name = (String)session.getAttribute("sessions");
+        Board board = new Board();
+        board.setTitle(title);
+        board.setContent(content);
+        board.setDate(date);
+        memberService.contentSave(board.getTitle(), board.getContent(), board.getDate(), name);
+        return "write";
     }
 }

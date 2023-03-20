@@ -57,6 +57,13 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     }
 
     @Override
+    public void contentSave(String title, String content, String date, String name) {
+        List<Long> rs = jdbcTemplate.query("select idx from member where name = ?", memberRowMapperIdx(), name);
+        Long idx = rs.get(0);
+        jdbcTemplate.update("INSERT INTO content (title, content, date, member_idx) values(?,?,?,?)", title, content, date, idx);
+    }
+
+    @Override
     public Optional<String> findFile(String name) {
         List<String> result = jdbcTemplate.query("select * from member where name = ? ",memberRowMapperImg(), name);
         return result.stream().findAny();
@@ -83,5 +90,11 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
             return member.getFilepath();
         };
     }
-
+    private RowMapper<Long> memberRowMapperIdx() {
+        return (rs, rowNum) -> {
+            Member member = new Member();
+            member.setId(Long.valueOf(rs.getString("idx")));
+            return member.getId();
+        };
+    }
 }
