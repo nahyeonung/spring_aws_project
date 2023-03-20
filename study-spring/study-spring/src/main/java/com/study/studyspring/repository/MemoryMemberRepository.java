@@ -39,7 +39,7 @@ public class MemoryMemberRepository implements MemberRepository{
     }
 
     @Override
-    public void contentSave(String title, String content, String date, String name) {
+    public void contentSave(String title, String content, String date, String name, String time) {
 
     }
 

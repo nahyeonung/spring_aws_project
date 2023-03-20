@@ -21,6 +21,9 @@
 }
 .nav:hover + .myPage{
     margin: 100px 0 0 250px;
+    }
+.nav:hover + .writePage{
+    margin: 60px 0 0 250px;
 }
 .nav_icon{
     position: relative;

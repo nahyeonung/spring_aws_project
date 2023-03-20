@@ -50,7 +50,6 @@
         </li>
     </ul>
 </nav>
-<div class="semi_header">공부를 기록해요</div>
 <div class="writePage">
     <div style="flex:1;">
         <div class="profile">
@@ -58,15 +57,18 @@
         </div>
     </div>
     <div class="flex4">
-        <div style="margin-left:10%; height:100%;">
+        <div class="semi_header">공부를 기록해요</div>
+        <div style="margin: 3% 0 0 10%;  height:100%;">
             <form method="post" action="/members/write" style="height:100%;">
-                <div>
-                    <input class="write_title" value="" name="title" placeholder="제목을 입력하세요.">
-                </div>
+                    <label for="b_title">제목</label>
+                    <input style="height:23px; outline: none;" value="" id="b_title" name="title" placeholder="제목을 입력하세요.">
+                    <label for="sd_time">공부 시간</label>
+                    <input style="height:23px; outline: none;" value="" id="sd_time" name="sd_time" placeholder="공부 시간을 입력하세요.">
+                    <h6 style="margin-block: 0 0">예)6시간15분</h6>
                 <div style="height:100%">
-                    <input class="write_body" style="height:60%;" value="" name="content" placeholder="내용을 입력하세요.">
+                    <input class="write_body" value="" name="content" placeholder="내용을 입력하세요.">
+                    <button class="submit_btn" type="submit">작성</button>
                 </div>
-                <button type="submit">작성</button>
             </form>
         </div>
     </div>

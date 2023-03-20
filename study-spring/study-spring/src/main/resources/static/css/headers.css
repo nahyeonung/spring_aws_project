@@ -67,7 +67,7 @@
 }
 .semi_header{
     display: flex; align-items:center; justify-content:center; color:white;
-    height:8%; margin: 60px 0 0 50px; background-color:black
+    height:6%; background-color:black;
 }
 @media screen and (max-width: 800px){
     .header_title{

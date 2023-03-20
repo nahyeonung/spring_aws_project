@@ -42,3 +42,7 @@ input::file-selector-button{
     border:none;
     background-color: #a8a8a8a6;
 }
+.submit_btn{
+    color:cyan; border-radius:5px;
+    border: 1px solid cyan;background-color:white;
+}

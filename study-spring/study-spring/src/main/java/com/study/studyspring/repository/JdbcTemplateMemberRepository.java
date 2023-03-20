@@ -57,10 +57,10 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     }
 
     @Override
-    public void contentSave(String title, String content, String date, String name) {
+    public void contentSave(String title, String content, String date, String name, String time) {
         List<Long> rs = jdbcTemplate.query("select idx from member where name = ?", memberRowMapperIdx(), name);
         Long idx = rs.get(0);
-        jdbcTemplate.update("INSERT INTO content (title, content, date, member_idx) values(?,?,?,?)", title, content, date, idx);
+        jdbcTemplate.update("INSERT INTO content (title, content, date, member_idx, study_time) values(?,?,?,?,?)", title, content, date, idx, time);
     }
 
     @Override

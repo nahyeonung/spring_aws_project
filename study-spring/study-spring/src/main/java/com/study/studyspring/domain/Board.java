@@ -9,6 +9,16 @@ public class Board {
     private int view;
     private int member_idx;
 
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    private String time;
+
     public String getTitle() {
         return title;
     }

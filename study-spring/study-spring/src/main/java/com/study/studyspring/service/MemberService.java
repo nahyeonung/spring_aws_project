@@ -57,8 +57,8 @@ public class MemberService {
         return memberRepository.findById(memberId, memberPwd);
     }
 
-    public void contentSave(String title, String content, String date, String name){
-        memberRepository.contentSave(title, content, date, name);
+    public void contentSave(String title, String content, String date, String name, String time){
+        memberRepository.contentSave(title, content, date, name, time);
     }
 
     public Optional<String> findFile(String name){

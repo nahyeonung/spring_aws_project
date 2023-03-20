@@ -122,7 +122,8 @@ public class MemberController {
     }
 
     @PostMapping("/members/write")
-    public String write(@RequestParam("title") String title, @RequestParam("content") String content, HttpSession session){
+    public String write(@RequestParam("title") String title, @RequestParam("content") String content,
+                        @RequestParam("sd_time") String time,HttpSession session){
         Date now = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date = formatter.format(now);
@@ -131,7 +132,8 @@ public class MemberController {
         board.setTitle(title);
         board.setContent(content);
         board.setDate(date);
-        memberService.contentSave(board.getTitle(), board.getContent(), board.getDate(), name);
+        board.setTime(time);
+        memberService.contentSave(board.getTitle(), board.getContent(), board.getDate(), name, board.getTime());
         return "write";
     }
 }
