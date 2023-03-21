@@ -1,5 +1,6 @@
 package com.study.studyspring.repository;
 
+import com.study.studyspring.domain.Board;
 import com.study.studyspring.domain.Member;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface MemberRepository {
 
     void contentSave(String title, String content, String date, String name, String time);
     Optional<String> findFile(String name);
+
+    List<Board> getBoardList(String name);
 }

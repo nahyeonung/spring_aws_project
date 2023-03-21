@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
@@ -135,5 +136,13 @@ public class MemberController {
         board.setTime(time);
         memberService.contentSave(board.getTitle(), board.getContent(), board.getDate(), name, board.getTime());
         return "write";
+    }
+
+    @GetMapping("members/getBoardList")
+    @ResponseBody
+    public List<Board> getBoardList(HttpSession session){
+        String name = (String)session.getAttribute("sessions");
+        List<Board> result = memberService.getBoardList(name);
+        return result;
     }
 }

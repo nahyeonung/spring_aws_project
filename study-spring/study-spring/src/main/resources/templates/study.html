@@ -4,6 +4,7 @@
 <link th:href="@{/css/sidebar.css}" rel="stylesheet">
 <link th:href="@{/css/bodies.css}" rel="stylesheet">
 <link th:href="@{/css/buttons.css}" rel="stylesheet">
+
 <head>
     <title>스터디</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -60,9 +61,19 @@
     <div class="flex4">
         <div class="flex4_under">
             <span class="flex4_name"><span class="flex4_name" th:text="${session.sessions}"></span>님의 글이에요</span>
+            <table id="study_table">
+                <thread>
+                    <tr>
+                        <th>타이틀</th>
+                    </tr>
+                </thread>
+                <tbody id="study_body">
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" th:src="@{/js/list.js}"></script>
 </body>
-<script type="text/javascript" th:src="@{/js/script.js}"></script>
 </html>

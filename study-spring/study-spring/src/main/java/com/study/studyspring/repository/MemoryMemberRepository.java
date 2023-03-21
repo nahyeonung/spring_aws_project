@@ -1,5 +1,6 @@
 package com.study.studyspring.repository;
 
+import com.study.studyspring.domain.Board;
 import com.study.studyspring.domain.Member;
 
 import java.util.*;
@@ -45,6 +46,11 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public Optional<String> findFile(String name) {
+        return null;
+    }
+
+    @Override
+    public List<Board> getBoardList(String name) {
         return null;
     }
 

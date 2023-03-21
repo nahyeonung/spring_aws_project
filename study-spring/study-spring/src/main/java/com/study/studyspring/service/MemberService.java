@@ -1,5 +1,6 @@
 package com.study.studyspring.service;
 
+import com.study.studyspring.domain.Board;
 import com.study.studyspring.domain.Member;
 import com.study.studyspring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,10 @@ public class MemberService {
 
     public Optional<String> findFile(String name){
         return memberRepository.findFile(name);
+    }
+
+    public List<Board> getBoardList(String name){
+        return memberRepository.getBoardList(name);
     }
 
 }

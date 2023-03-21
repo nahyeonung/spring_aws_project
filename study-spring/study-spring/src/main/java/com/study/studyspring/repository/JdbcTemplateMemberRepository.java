@@ -1,5 +1,6 @@
 package com.study.studyspring.repository;
 
+import com.study.studyspring.domain.Board;
 import com.study.studyspring.domain.Member;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -69,11 +70,28 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         return result.stream().findAny();
     }
 
+    @Override
+    public List<Board> getBoardList(String name) {
+        List<Long> rs = jdbcTemplate.query("select idx from member where name = ?", memberRowMapperIdx(), name);
+        Long idx = rs.get(0);
+        List<Board> result = jdbcTemplate.query("select * from content where member_idx = ?", boardRowMapper(), idx);
+        return result;
+    }
+
     private RowMapper<Member> memberRowMapper() {
         return (rs, rowNum) -> {
             Member member = new Member();
             member.setName(rs.getString("name"));
             return member;
+        };
+    }
+    private RowMapper<Board> boardRowMapper() {
+        return (rs, rowNum) -> {
+            Board board = new Board();
+            board.setDate(rs.getString("date"));
+            board.setTitle(rs.getString("title"));
+            board.setTime(rs.getString("study_time"));
+            return board;
         };
     }
     private RowMapper<String> memberRowMapperLogin() {
