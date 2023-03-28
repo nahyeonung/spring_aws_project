@@ -3,12 +3,24 @@ package com.study.studyspring.domain;
 import java.time.OffsetDateTime;
 
 public class Board {
+
+    private int idx;
     private String title;
+
     private String content;
     private String date;
     private int view;
     private int member_idx;
 
+    private String time;
+
+    public int getIdx() {
+        return idx;
+    }
+
+    public void setIdx(int idx) {
+        this.idx = idx;
+    }
     public String getTime() {
         return time;
     }
@@ -17,7 +29,6 @@ public class Board {
         this.time = time;
     }
 
-    private String time;
 
     public String getTitle() {
         return title;

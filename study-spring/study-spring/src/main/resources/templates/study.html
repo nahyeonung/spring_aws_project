@@ -61,16 +61,19 @@
     <div class="flex4">
         <div class="flex4_under">
             <span class="flex4_name"><span class="flex4_name" th:text="${session.sessions}"></span>님의 글이에요</span>
-            <table id="study_table">
-                <thread>
-                    <tr>
-                        <th>타이틀</th>
-                    </tr>
-                </thread>
-                <tbody id="study_body">
-                </tbody>
-            </table>
         </div>
+        <table id="study_table" style="text-align:center; width:100%;">
+            <thread>
+                <tr>
+                    <th>인덱스</th>
+                    <th>타이틀</th>
+                    <th>공부시간</th>
+                    <th>작성시간</th>
+                </tr>
+            </thread>
+            <tbody id="study_body">
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

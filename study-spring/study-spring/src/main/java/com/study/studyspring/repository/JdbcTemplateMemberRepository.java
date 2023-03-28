@@ -88,6 +88,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
     private RowMapper<Board> boardRowMapper() {
         return (rs, rowNum) -> {
             Board board = new Board();
+            board.setIdx(rs.getInt("content_idx"));
             board.setDate(rs.getString("date"));
             board.setTitle(rs.getString("title"));
             board.setTime(rs.getString("study_time"));
