@@ -144,7 +144,9 @@ public class MemberController {
     }
 
     @RequestMapping(value="/members/content")
-    public void contents(@RequestParam("id") int id){
+    public String contents(@RequestParam("id") int id){
+
         System.out.println(id);
+        return "write";
     }
 }
