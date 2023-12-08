@@ -23,15 +23,18 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 
     @Override
     public Member save(Member member) {
-        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
-        jdbcInsert.withTableName("member").usingGeneratedKeyColumns("idx");
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("name", member.getName());
-        parameters.put("id", member.getLoginId());
-        parameters.put("pwd", member.getPwd());
+//        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+//        jdbcInsert.withTableName("member").usingGeneratedKeyColumns("idx");
+//        Map<String, Object> parameters = new HashMap<>();
+//        parameters.put("name", member.getName());
+//        parameters.put("id", member.getLoginId());
+//        parameters.put("pwd", member.getPwd());
+//
+//        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+//        member.setId(key.longValue());
 
-        Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
-        member.setId(key.longValue());
+        jdbcTemplate.update("INSERT INTO member (idx, id, name , pwd) values(member_seq.NEXTVAL,?,?,?)", member.getLoginId(), member.getName(), member.getPwd());
+
         return member;
     }
 
@@ -54,14 +57,14 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
 
     @Override
     public void imgSave(String name, String filePath) {
-        jdbcTemplate.update("UPDATE MEMBER SET file = ? WHERE name = ?", filePath, name);
+        jdbcTemplate.update("UPDATE MEMBER SET files = ? WHERE name = ?", filePath, name);
     }
 
     @Override
     public void contentSave(String title, String content, String date, String name, String time) {
         List<Long> rs = jdbcTemplate.query("select idx from member where name = ?", memberRowMapperIdx(), name);
         Long idx = rs.get(0);
-        jdbcTemplate.update("INSERT INTO content (title, content, date, member_idx, study_time) values(?,?,?,?,?)", title, content, date, idx, time);
+        jdbcTemplate.update("INSERT INTO content (title, content, dt, member_idx, study_time) values(?,?,?,?,?)", title, content, date, idx, time);
     }
 
     @Override
@@ -89,7 +92,7 @@ public class JdbcTemplateMemberRepository implements MemberRepository{
         return (rs, rowNum) -> {
             Board board = new Board();
             board.setIdx(rs.getInt("content_idx"));
-            board.setDate(rs.getString("date"));
+            board.setDate(rs.getString("dt"));
             board.setTitle(rs.getString("title"));
             board.setTime(rs.getString("study_time"));
             return board;
